@@ -2,7 +2,7 @@
 
 const charactersUl = document.querySelector(".js_charactersUl");
 
-const allCharacters = [
+let allCharacters = [
   {
     id: 112,
     films: ["Hercules (film)"],
@@ -973,7 +973,7 @@ const allCharacters = [
 
 const renderOneCharacters = (charactersObj) => {
   const html = `
-        <li class="characters_item">
+        <li class="js_characters characters_item favorite">
             <img src="${charactersObj.imageUrl}"/>
             <h4>${charactersObj.name}</h4>
         </li>`;
@@ -987,6 +987,22 @@ const renderAllCharacters = () => {
     html += renderOneCharacters(charactersObj);
   }
   charactersUl.innerHTML = html;
+
+  const allCharactersLi = document.querySelector(".js_characters");
+
+  for (const li of allCharactersLi) {
+    li.addEventListener("click", handleFavorite);
+  }
 };
+
+const handleFavorite = (ev) => {
+  console.log("favoritas");
+};
+
+fetch("https://api.disneyapi.dev/character?pageSize=50")
+  .then((response) => response.json())
+  .then((data) => {
+    allCharacters = data;
+  });
 
 renderAllCharacters();
