@@ -20,8 +20,12 @@ const charactersObj = {
   v: 0,
 };
 
-charactersUl.innerHTML = `
+const renderOneCharacters = () => {
+  charactersUl.innerHTML = `
     <li class="characters_item">
         <img src="${charactersObj.imageUrl}"/>
         <h4>${charactersObj.name}</h4>
     </li>`;
+};
+
+renderOneCharacters();
