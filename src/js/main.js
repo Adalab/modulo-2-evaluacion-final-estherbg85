@@ -972,13 +972,21 @@ const allCharacters = [
 ];
 
 const renderOneCharacters = (charactersObj) => {
-  charactersUl.innerHTML += `
-    <li class="characters_item">
-        <img src="${charactersObj.imageUrl}"/>
-        <h4>${charactersObj.name}</h4>
-    </li>`;
+  const html = `
+        <li class="characters_item">
+            <img src="${charactersObj.imageUrl}"/>
+            <h4>${charactersObj.name}</h4>
+        </li>`;
+
+  return html;
 };
 
-for (const charactersObj of allCharacters) {
-  renderOneCharacters(charactersObj);
-}
+const renderAllCharacters = () => {
+  let html = "";
+  for (const charactersObj of allCharacters) {
+    html += renderOneCharacters(charactersObj);
+  }
+  charactersUl.innerHTML = html;
+};
+
+renderAllCharacters();
