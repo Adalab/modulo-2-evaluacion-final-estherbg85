@@ -25,7 +25,14 @@
 
 }
 
+.characters_ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  list-style-type: none;
+
+}
 .characters_item {
+ 
   width: 100%;
   height: auto;
 }
