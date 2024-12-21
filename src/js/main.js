@@ -5,9 +5,12 @@ const charactersUl = document.querySelector(".js_charactersUl");
 
 const favoritesUl = document.querySelector(".js_favoritesUl");
 
-// SECCIÓN DE LAS FUNCIONES
+// ARRAYS
 
 let allCharacters = [];
+let favorites = [];
+
+// SECCIÓN DE LAS FUNCIONES
 
 const renderOneCharacters = (charactersObj) => {
   const html = `
@@ -34,21 +37,33 @@ const renderAllCharacters = () => {
 };
 
 const handleFavorite = (ev) => {
-  console.log(ev.currentTarget.id);
   ev.currentTarget.classList.toggle("favorite");
 
   //Obtenemos el objeto del personaje pulsado
 
   const clickedId = parseInt(ev.currentTarget.id);
 
+  // Buscamos en el de todos
+
   const clickedCharactersObj = allCharacters.find(
     (eachCharacters) => eachCharacters._id === clickedId
   );
-  console.log(allCharacters);
 
-  const liFavorite = renderOneCharacters(clickedCharactersObj);
+  //Buscamos en el de favoritos
 
-  favoritesUl.innerHTML += liFavorite;
+  const favoritesObj = favorites.find(
+    (eachCharacters) => eachCharacters._id === clickedId
+  );
+
+  if (favoritesObj === undefined) {
+    // Añadimos el <li> del personaje favorito al HTML
+
+    const liFavorite = renderOneCharacters(clickedCharactersObj);
+
+    favoritesUl.innerHTML += liFavorite;
+
+    favorites.push(clickedCharactersObj);
+  }
 };
 
 // CUANDO CARGA LA PÁGINA
