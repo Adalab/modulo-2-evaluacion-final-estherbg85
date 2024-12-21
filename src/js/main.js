@@ -5,6 +5,10 @@ const charactersUl = document.querySelector(".js_charactersUl");
 
 const favoritesUl = document.querySelector(".js_favoritesUl");
 
+const searchInput = document.querySelector(".js_searchInput");
+
+const btnSearch = document.querySelector(".js_btnSearch");
+
 // ARRAYS
 
 let allCharacters = [];
@@ -78,6 +82,38 @@ const handleFavorite = (ev) => {
     renderFavorites();
   }
 };
+
+//EVENTO
+
+btnSearch.addEventListener("click", (ev) => {
+  ev.preventDefault();
+
+  /*fetch(
+    "https://api.disneyapi.dev/character?pageSize=50&name=" + searchInput.value
+  )*/
+  fetch(
+    "https://api.disneyapi.dev/character?" +
+      new URLSearchParams({
+        pageSize: "50",
+        name: searchInput.value,
+      })
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      allCharacters = data.data;
+      console.log(allCharacters);
+      allCharacters.forEach((element) => {
+        if (element.imageUrl === undefined) {
+          element.imageUrl =
+            "https://placehold.co/400x400/ffffff/555555?text=Disney";
+        }
+      });
+
+      renderAllCharacters();
+    });
+
+  searchInput.value = "";
+});
 
 // CUANDO CARGA LA PÁGINA
 

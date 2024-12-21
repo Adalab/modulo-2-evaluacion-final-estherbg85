@@ -16,7 +16,7 @@
   border-color: rgb(39, 39, 211);
 }
 
-.input_search {
+.btnSearch {
   width: 8%;
   height: 30px;
   background-color: rgb(39, 39, 211);
@@ -33,7 +33,7 @@
 
 }
 .characters_item {
- 
+  list-style-type: none;
   width: 100%;
   height: auto;
 
@@ -41,7 +41,7 @@
 
 .section {
 display: grid;
-grid-template-columns: 60% 40%;
+grid-template-columns: 30% 70% ;
 }
 
 .favorite {
