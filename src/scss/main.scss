@@ -26,6 +26,7 @@
 }
 
 .characters_ul {
+  margin-inline: 15px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   list-style-type: none;
@@ -38,7 +39,16 @@
 
 }
 
+.section {
+display: grid;
+grid-template-columns: 60% 40%;
+}
+
 .favorite {
   background-color: red;
   border: 5px red;
+}
+.favorite_section {
+
+  background-color: aquamarine;
 }

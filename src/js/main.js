@@ -3,13 +3,15 @@
 
 const charactersUl = document.querySelector(".js_charactersUl");
 
-let allCharacters = [];
+const favoritesUl = document.querySelector(".js_favoritesUl");
 
 // SECCIÓN DE LAS FUNCIONES
 
+let allCharacters = [];
+
 const renderOneCharacters = (charactersObj) => {
   const html = `
-        <li class="js_characters_item characters_item">
+        <li class="js_characters_item characters_item" id="${charactersObj._id}">
             <img src="${charactersObj.imageUrl}"/>
             <h4>${charactersObj.name}</h4>
         </li>`;
@@ -32,10 +34,21 @@ const renderAllCharacters = () => {
 };
 
 const handleFavorite = (ev) => {
-  console.log("favoritas");
-  console.log(ev.currentTarget);
-
+  console.log(ev.currentTarget.id);
   ev.currentTarget.classList.toggle("favorite");
+
+  //Obtenemos el objeto del personaje pulsado
+
+  const clickedId = parseInt(ev.currentTarget.id);
+
+  const clickedCharactersObj = allCharacters.find(
+    (eachCharacters) => eachCharacters._id === clickedId
+  );
+  console.log(allCharacters);
+
+  const liFavorite = renderOneCharacters(clickedCharactersObj);
+
+  favoritesUl.innerHTML += liFavorite;
 };
 
 // CUANDO CARGA LA PÁGINA
