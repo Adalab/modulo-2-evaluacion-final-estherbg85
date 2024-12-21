@@ -36,6 +36,14 @@ const renderAllCharacters = () => {
   }
 };
 
+const renderFavorites = () => {
+  let html = "";
+  for (const charactersObj of favorites) {
+    html += renderOneCharacters(charactersObj);
+  }
+  favoritesUl.innerHTML = html;
+};
+
 const handleFavorite = (ev) => {
   ev.currentTarget.classList.toggle("favorite");
 
@@ -51,18 +59,23 @@ const handleFavorite = (ev) => {
 
   //Buscamos en el de favoritos
 
-  const favoritesObj = favorites.find(
+  const favoritesIdx = favorites.findIndex(
     (eachCharacters) => eachCharacters._id === clickedId
   );
 
-  if (favoritesObj === undefined) {
+  if (favoritesIdx === -1) {
     // Añadimos el <li> del personaje favorito al HTML
 
-    const liFavorite = renderOneCharacters(clickedCharactersObj);
-
-    favoritesUl.innerHTML += liFavorite;
-
     favorites.push(clickedCharactersObj);
+    renderFavorites();
+  } else {
+    // Quitar del array de favoritos
+
+    favorites.splice(favoritesIdx, 1);
+
+    // Quitar del HTML
+
+    renderFavorites();
   }
 };
 
