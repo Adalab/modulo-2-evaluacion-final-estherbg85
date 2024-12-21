@@ -62,11 +62,11 @@ const handleFavorite = (ev) => {
   const favoritesIdx = favorites.findIndex(
     (eachCharacters) => eachCharacters._id === clickedId
   );
-
+  // Si dentro del array de favoritos nos devuelve -1 es que ese personaje no esta en el array de favoritos
   if (favoritesIdx === -1) {
     // Añadimos el <li> del personaje favorito al HTML
 
-    favorites.push(clickedCharactersObj);
+    favorites.push(clickedCharactersObj); // añadimos el personaje a favoritos
     renderFavorites();
   } else {
     // Quitar del array de favoritos
