@@ -19,8 +19,8 @@ let favorites = [];
 const renderOneCharacters = (charactersObj) => {
   const html = `
         <li class="js_characters_item characters_item" id="${charactersObj._id}">
-            <img src="${charactersObj.imageUrl}"/>
-            <h4>${charactersObj.name}</h4>
+            <img class="characters_img" src="${charactersObj.imageUrl}"/>
+            <h2 class="characters_name">${charactersObj.name}</h2>
         </li>`;
 
   return html;
