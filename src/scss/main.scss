@@ -65,13 +65,21 @@ body {
   }
   
 }
-.hidden {
-  visibility: hidden;
+.display {
+  display: none;
 }
+
+
 input {
   padding-left: 20px;
 }
+.characters_colum{
+  grid-template-columns: 100% !important;
+}
+.favoritesul{
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr !important;
 
+}
 .characters {
   margin-inline: 25px;
   display: grid;

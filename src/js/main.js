@@ -10,6 +10,10 @@ const btnSearch = document.querySelector(".js_btnSearch");
 
 const searchInput = document.querySelector(".js_searchInput");
 
+const charactersFav = document.querySelector(".js_characters_favorites");
+
+const characters = document.querySelector(".js_characters");
+
 // Implementar Dom Avanzado
 
 const header = document.querySelector(".js_header");
@@ -68,12 +72,20 @@ const renderFavorites = () => {
     html += renderOneCharacters(favorite, "favorite");
   }
   favoritesUl.innerHTML = html;
-  const btnDelete = document.querySelector(".js_btndelete");
 
+  showFavorites();
+};
+
+const showFavorites = () => {
+  console.log(characters);
   if (favorites.length === 0) {
-    btnDelete.classList.add("hidden");
+    charactersFav.classList.add("display");
+    characters.classList.add("characters_colum");
+    charactersUl.classList.add("favoritesul");
   } else {
-    btnDelete.classList.remove("hidden");
+    charactersFav.classList.remove("display");
+    characters.classList.remove("characters_colum");
+    charactersUl.classList.remove("favoritesul");
   }
 };
 
