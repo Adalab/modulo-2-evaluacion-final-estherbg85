@@ -10,6 +10,20 @@ const btnSearch = document.querySelector(".js_btnSearch");
 
 const searchInput = document.querySelector(".js_searchInput");
 
+// Implementar Dom Avanzado
+
+const header = document.querySelector(".js_header");
+
+const image = document.createElement("img");
+
+image.className = "header_img";
+image.src = "./images/logo-disney_4_1200x757.jpeg";
+image.alt = "castillo disney de noche";
+image.id = "image01";
+image.dataset.invent = "imagen001";
+
+header.appendChild(image);
+
 // ARRAYS
 
 let allCharacters = [];
