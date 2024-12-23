@@ -14,6 +14,8 @@ const charactersFav = document.querySelector(".js_characters_favorites");
 
 const characters = document.querySelector(".js_characters");
 
+const btnDelete = document.querySelector(".js_btndelete");
+
 // Implementar Dom Avanzado
 
 const header = document.querySelector(".js_header");
@@ -158,6 +160,11 @@ btnSearch.addEventListener("click", (ev) => {
   searchInput.value = "";
 });
 
+btnDelete.addEventListener("click", (ev) => {
+  ev.preventDefault();
+
+  favoritesUl.innerHTML = "";
+});
 // CUANDO CARGA LA PÁGINA
 
 fetch("https://api.disneyapi.dev/character?pageSize=50")
