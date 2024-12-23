@@ -1,24 +1,26 @@
 "use strict";
+
 // SECCIÓN QUERY SELECTOR
 
 const charactersUl = document.querySelector(".js_charactersUl");
 
 const favoritesUl = document.querySelector(".js_favoritesUl");
 
-const searchInput = document.querySelector(".js_searchInput");
-
 const btnSearch = document.querySelector(".js_btnSearch");
+
+const searchInput = document.querySelector(".js_searchInput");
 
 // ARRAYS
 
 let allCharacters = [];
 let favorites = [];
+let filteredCharastersArray = [];
 
 // SECCIÓN DE LAS FUNCIONES
 
-const renderOneCharacters = (charactersObj) => {
+const renderOneCharacters = (charactersObj, classFavorite) => {
   const html = `
-        <li class="js_characters_item characters_item" id="${charactersObj._id}">
+        <li class="js_characters_item characters_item ${classFavorite}" id="${charactersObj._id}">
             <img class="characters_img" src="${charactersObj.imageUrl}"/>
             <h2 class="characters_name">${charactersObj.name}</h2>
         </li>`;
@@ -26,10 +28,10 @@ const renderOneCharacters = (charactersObj) => {
   return html;
 };
 
-const renderAllCharacters = () => {
+const renderAllCharacters = (paramCharacters) => {
   let html = "";
-  for (const charactersObj of allCharacters) {
-    html += renderOneCharacters(charactersObj);
+  for (const charactersObj of paramCharacters) {
+    html += renderOneCharacters(charactersObj, "");
   }
   charactersUl.innerHTML = html;
 
@@ -43,7 +45,7 @@ const renderAllCharacters = () => {
 const renderFavorites = () => {
   let html = "";
   for (const charactersObj of favorites) {
-    html += renderOneCharacters(charactersObj);
+    html += renderOneCharacters(charactersObj, "favorite");
   }
   favoritesUl.innerHTML = html;
 };
@@ -87,32 +89,13 @@ const handleFavorite = (ev) => {
 
 btnSearch.addEventListener("click", (ev) => {
   ev.preventDefault();
+  const filteredAllCharacters = allCharacters
+    .filter((charactersObj) =>
+      charactersObj.name.toLowerCase().includes(searchInput.value.toLowerCase())
+    )
+    .slice();
 
-  /*fetch(
-    "https://api.disneyapi.dev/character?pageSize=50&name=" + searchInput.value
-  )*/
-  fetch(
-    "https://api.disneyapi.dev/character?" +
-      new URLSearchParams({
-        pageSize: "50",
-        name: searchInput.value,
-      })
-  )
-    .then((response) => response.json())
-    .then((data) => {
-      allCharacters = data.data;
-      console.log(allCharacters);
-      allCharacters.forEach((element) => {
-        if (element.imageUrl === undefined) {
-          element.imageUrl =
-            "https://placehold.co/400x400/ffffff/555555?text=Disney";
-        }
-      });
-
-      renderAllCharacters();
-    });
-
-  searchInput.value = "";
+  renderAllCharacters(filteredAllCharacters);
 });
 
 // CUANDO CARGA LA PÁGINA
@@ -128,5 +111,5 @@ fetch("https://api.disneyapi.dev/character?pageSize=50")
       }
     });
 
-    renderAllCharacters();
+    renderAllCharacters(allCharacters);
   });

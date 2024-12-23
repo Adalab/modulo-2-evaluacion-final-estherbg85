@@ -6,11 +6,9 @@
   font-family: "Waltograph Mediana";
 }
 
-
 .header {
   height: 600px;
   overflow: hidden;
- 
 
   &_img {
     width: 100%;
@@ -39,12 +37,21 @@
     height: 45px;
     font-size: 20px;
     border: 3px solid rgb(39, 39, 211);
-    
   }
-  
   &_btn {
+    padding-inline: 25px;
     font-size: 20px;
     width: 8%;
+    height: 45px;
+    background-color: rgb(39, 39, 211);
+    border-color: rgb(39, 39, 211);
+    color: white;
+  }
+  &_btndelete {
+    padding-inline: 10px;
+    margin-top: 35px;
+    font-size: 18px;
+    width: 100px;
     height: 45px;
     background-color: rgb(39, 39, 211);
     border-color: rgb(39, 39, 211);
@@ -83,12 +90,7 @@ input {
     border-radius: 3%;
     display: grid;  
   }
-  &_favorite {
-    text-align: center;
-    margin-inline: 25px;
-    background-color: rgb(127, 182, 245);
-  }
-  &_img {
+  &_img { 
     width: 240px;   
     height: auto;   
   }
@@ -97,10 +99,21 @@ input {
     text-align: center;
     margin: 0;
   }
+  &_favorites {
+    text-align: center;
+    margin-inline: 25px;
+    background-color: rgb(237, 237, 238);
+
+    &_ul {
+      margin-inline: 25px;
+    }
+  }
 }
  
 .favorite {
-  background-color: rgb(127, 182, 245);
+  justify-content: center;
+  background-color: rgb(147, 240, 243);
+  box-shadow: 4px 4px 10px;
 }
 
 .footer {
