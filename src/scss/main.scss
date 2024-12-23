@@ -69,16 +69,16 @@ body {
 .display {
   display: none;
 }
-
-
 input {
   padding-left: 20px;
 }
 .characters_colum{
   grid-template-columns: 100% !important;
+  
 }
 .favoritesul{
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr !important;
+  margin-inline: 45px;
 
 }
 .characters {

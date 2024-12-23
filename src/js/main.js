@@ -162,8 +162,9 @@ btnSearch.addEventListener("click", (ev) => {
 
 btnDelete.addEventListener("click", (ev) => {
   ev.preventDefault();
-
-  favoritesUl.innerHTML = "";
+  favorites = [];
+  renderFavorites();
+  renderAllCharacters(allCharacters);
 });
 // CUANDO CARGA LA PÁGINA
 
