@@ -14,7 +14,6 @@ const searchInput = document.querySelector(".js_searchInput");
 
 let allCharacters = [];
 let favorites = [];
-let filteredCharastersArray = [];
 
 // SECCIÓN DE LAS FUNCIONES
 
@@ -28,10 +27,17 @@ const renderOneCharacters = (charactersObj, classFavorite) => {
   return html;
 };
 
-const renderAllCharacters = (paramCharacters) => {
+const renderAllCharacters = (dataCharacters) => {
   let html = "";
-  for (const charactersObj of paramCharacters) {
-    html += renderOneCharacters(charactersObj, "");
+  for (const character of dataCharacters) {
+    const favoritesIdx = favorites.find(
+      (eachFavorite) => eachFavorite._id === character._id
+    );
+    if (favoritesIdx === undefined) {
+      html += renderOneCharacters(character, "");
+    } else {
+      html += renderOneCharacters(character, "favorite");
+    }
   }
   charactersUl.innerHTML = html;
 
@@ -44,10 +50,17 @@ const renderAllCharacters = (paramCharacters) => {
 
 const renderFavorites = () => {
   let html = "";
-  for (const charactersObj of favorites) {
-    html += renderOneCharacters(charactersObj, "favorite");
+  for (const favorite of favorites) {
+    html += renderOneCharacters(favorite, "favorite");
   }
   favoritesUl.innerHTML = html;
+  const btnDelete = document.querySelector(".js_btndelete");
+
+  if (favorites.length === 0) {
+    btnDelete.classList.add("hidden");
+  } else {
+    btnDelete.classList.remove("hidden");
+  }
 };
 
 const handleFavorite = (ev) => {
@@ -89,6 +102,36 @@ const handleFavorite = (ev) => {
 
 btnSearch.addEventListener("click", (ev) => {
   ev.preventDefault();
+  fetch(
+    "https://api.disneyapi.dev/character?" +
+      new URLSearchParams({
+        pageSize: "50",
+        name: searchInput.value,
+      })
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data.info.count);
+      const countCharacters = data.info.count;
+      if (countCharacters === 1) {
+        allCharacters = [];
+        allCharacters.push(data.data);
+      } else {
+        allCharacters = data.data;
+      }
+      console.log(data);
+      allCharacters.forEach((element) => {
+        if (element.imageUrl === undefined) {
+          element.imageUrl =
+            "https://placehold.co/400x400/ffffff/555555?text=Disney";
+        }
+      });
+      renderAllCharacters(allCharacters);
+    });
+  searchInput.value = "";
+});
+/*btnSearch.addEventListener("click", (ev) => {
+  ev.preventDefault();
   const filteredAllCharacters = allCharacters
     .filter((charactersObj) =>
       charactersObj.name.toLowerCase().includes(searchInput.value.toLowerCase())
@@ -96,7 +139,7 @@ btnSearch.addEventListener("click", (ev) => {
     .slice();
 
   renderAllCharacters(filteredAllCharacters);
-});
+});*/
 
 // CUANDO CARGA LA PÁGINA
 
