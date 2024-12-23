@@ -110,6 +110,7 @@ const handleFavorite = (ev) => {
 
     renderFavorites();
   }
+  localStorage.setItem("charactersFavs", JSON.stringify(favorites));
 };
 
 //EVENTO
@@ -144,16 +145,6 @@ btnSearch.addEventListener("click", (ev) => {
     });
   searchInput.value = "";
 });
-/*btnSearch.addEventListener("click", (ev) => {
-  ev.preventDefault();
-  const filteredAllCharacters = allCharacters
-    .filter((charactersObj) =>
-      charactersObj.name.toLowerCase().includes(searchInput.value.toLowerCase())
-    )
-    .slice();
-
-  renderAllCharacters(filteredAllCharacters);
-});*/
 
 // CUANDO CARGA LA PÁGINA
 
@@ -170,3 +161,8 @@ fetch("https://api.disneyapi.dev/character?pageSize=50")
 
     renderAllCharacters(allCharacters);
   });
+
+if (localStorage.getItem("charactersFavs") !== null) {
+  favorites = JSON.parse(localStorage.getItem("charactersFavs"));
+  renderFavorites();
+}
