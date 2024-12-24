@@ -92,7 +92,10 @@ input {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr !important;
   margin-inline: 45px;
 }
-
+.gif {
+  margin-left: 35px;
+  height: 140px;
+}
 .characters {
   margin-inline: 25px;
   display: grid;

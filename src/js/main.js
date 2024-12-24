@@ -186,3 +186,14 @@ if (localStorage.getItem("charactersFavs") !== null) {
   favorites = JSON.parse(localStorage.getItem("charactersFavs"));
   renderFavorites();
 }
+
+document.getElementById("agregarGifBtn").addEventListener("click", function () {
+  // Crear un nuevo elemento de imagen
+  var gif = document.createElement("img");
+
+  // Establecer la fuente del GIF (puedes poner cualquier URL de un GIF)
+  gif.src = "https://media.giphy.com/media/3o7aD2saalLXpKm6Jy/giphy.gif"; // Cambia esta URL a tu GIF deseado
+
+  // Agregar el GIF al contenedor
+  document.getElementById("gifContainer").appendChild(gif);
+});
