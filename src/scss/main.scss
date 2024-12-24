@@ -8,7 +8,7 @@
 }
 
 .header {
-  height: 750px;
+  height: 700px;
   overflow: hidden;
 
   &_img {
@@ -38,7 +38,7 @@ body {
  
   &_input {
     width: 85%;
-    height: 45px;
+    height: 38px;
     font-size: 25px;
     border-radius: 4px;
     border-color: rgb(129, 53, 243);
@@ -94,14 +94,16 @@ input {
 }
 .gif {
   margin-left: 35px;
-  height: 140px;
+  height: 130px;
 }
 .characters {
   margin-inline: 25px;
+  margin-bottom: 80px;
   display: grid;
   grid-template-columns: 30% 70% ;
 
   &_title {
+    padding-bottom: 15px;
     text-shadow: 2px 2px 4px;
     color:  rgb(123, 41, 247);
     font-size: 45px;
@@ -134,6 +136,7 @@ input {
     margin: 0;
   }
   &_favorites {
+    margin-top: 80px;
     background-color: rgb(208, 186, 243);
     text-align: center;
     margin-inline: 25px;
