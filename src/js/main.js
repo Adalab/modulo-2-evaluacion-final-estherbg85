@@ -10,7 +10,7 @@ const btnSearch = document.querySelector(".js_btnSearch");
 
 const searchInput = document.querySelector(".js_searchInput");
 
-const charactersFav = document.querySelector(".js_characters_favorites");
+const charactersFav = document.querySelector(".js_favorites_characters");
 
 const characters = document.querySelector(".js_characters");
 
@@ -53,6 +53,7 @@ const renderAllCharacters = (dataCharacters) => {
     const favoritesIdx = favorites.find(
       (eachFavorite) => eachFavorite._id === character._id
     );
+
     if (favoritesIdx === undefined) {
       html += renderOneCharacters(character, "");
     } else {
@@ -79,14 +80,13 @@ const renderFavorites = () => {
 };
 
 const showFavorites = () => {
-  console.log(characters);
   if (favorites.length === 0) {
     charactersFav.classList.add("display");
-    characters.classList.add("characters_colum");
+    characters.classList.add("without_favorites");
     charactersUl.classList.add("favoritesul");
   } else {
     charactersFav.classList.remove("display");
-    characters.classList.remove("characters_colum");
+    characters.classList.remove("without_favorites");
     charactersUl.classList.remove("favoritesul");
   }
 };
@@ -142,6 +142,7 @@ btnSearch.addEventListener("click", (ev) => {
     .then((data) => {
       console.log(data.info.count);
       const countCharacters = data.info.count;
+
       if (countCharacters === 1) {
         allCharacters = [];
         allCharacters.push(data.data);
