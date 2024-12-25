@@ -5,12 +5,8 @@
   grid-template-columns: 30% 70% ;
   
   &_title {
-    padding-bottom: 15px;
-    text-shadow: 2px 2px 4px;
-    color:  rgb(123, 41, 247);
-    font-size: 45px;
-    text-align: center;
-    margin-bottom: 30px;
+    @include titles;
+    color: $color-titles-btn;
   }
   &_ul {
     margin-left: 30px;
@@ -25,7 +21,7 @@
     list-style-type: none;
     width: 280px;
     height: 565px;
-    border: 3px solid  rgb(129, 53, 243);
+    border: 3px solid  $color-titles-btn;
     border-radius: 3%;
     display: grid;  
   }
@@ -40,7 +36,7 @@
 }
 
 .favorite {
-  background-color:  rgb(193, 156, 248);
+  background-color: $color-background-body;
   box-shadow: 4px 4px 10px;
 }
 

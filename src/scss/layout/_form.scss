@@ -1,15 +1,14 @@
 body {
+  @include font-text;
   background-color: rgb(224, 213, 241);
 }
 .form {
+  @include display;
   margin-left: 230px;
-  background-color: white;
+  background-color:$color-background-letter;
   width: 80%;
   height: 10%;
   text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: absolute;
   top: 550px;
   z-index: 1;
@@ -17,32 +16,28 @@ body {
   gap: 30px;
    
   &_input {
+    @include border-size;
     width: 85%;
     height: 40px;
-    font-size: 30px;
-    border-radius: 4px;
-    border-color: rgb(129, 53, 243);
+    border-color: $color-border;
   }
   &_btn:hover {
-      background-color: rgb(233, 6, 253); 
+      background-color: $color-transform-btn; 
       transform: scale(1.3); 
     }
   &_btn {
-    border-radius: 4px;
+    @include border-size;
     padding-inline: 30px;
-    font-size: 30px;
     width: 8%;
     height: 40px;
-    background-color:  rgb(129, 53, 243);
-    border-color: rgb(129, 53, 243);
-    color: white;
+    background-color:  $color-border;
+    border-color: $color-border;
+    color:$color-background-letter;
     transition: background-color 0.8s ease, transform 0.8s ease;
   }
 }
 
   input {
-    font-family: "Sunshiney", serif;
-    font-weight: 400;
-    font-style: normal;
+    @include font-text;
     padding-left: 20px;
   }

@@ -1,0 +1,36 @@
+//fonts
+
+@mixin font-text {
+    font-family: "Sunshiney", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+//display
+
+@mixin display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin titles {
+    font-size: 45px;
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    text-shadow: 2px 2px 4px;
+}
+
+@mixin border-size {
+    font-size: 30px;
+    border-radius: 4px;
+}
+
+//colors
+
+$color-background-body: rgb(193, 156, 248);
+$color-background-letter: white;
+$color-titles-btn: rgb(123, 41, 247);
+$color-transform-btn: rgb(233, 6, 253);
+$color-border: rgb(129, 53, 243);
