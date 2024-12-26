@@ -22,8 +22,13 @@ const header = document.querySelector(".js_header");
 
 const image = document.createElement("img");
 
+const disneyCastle = new URL(
+  "../images/castillo-de-disneyland-q1m7w5s7yhgo7r1d.jpg",
+  import.meta.url
+);
+
 image.className = "header_img";
-image.src = "./images/castillo-de-disneyland-q1m7w5s7yhgo7r1d.jpg";
+image.src = disneyCastle;
 image.alt = "castillo disney de noche";
 image.id = "image01";
 image.dataset.invent = "imagen001";
