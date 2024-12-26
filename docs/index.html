@@ -17,22 +17,25 @@
     <header class="js_header header"></header>
 
     <main>
-  <form class="form">
-    <input
-      class="js_searchInput form_input"
-      type="text"
-      id="texto"
-      placeholder="Example: Olu Mel"
-    />
-    <input class="js_btnSearch form_btn" value="Search" />
-  </form>
-</main>
+      <form class="form">
+  <input
+    class="js_searchInput form_input"
+    type="text"
+    id="texto"
+    placeholder="Example: Olu Mel"
+  />
+  <input type="button" class="js_btnSearch form_btn" value="Search" />
+</form>
 
-    <section class="js_characters characters without_favorites">
+      <section class="js_characters characters without_favorites">
   <div class="js_favorites_characters favorites">
     <h1 class="characters_title">⭐ My Favorites ⭐</h1>
     <ul class="js_favoritesUl favorites_ul"></ul>
-    <input class="js_btndelete favorites_btnDelete" value="Delete All" />
+    <input
+      type="button"
+      class="js_btndelete favorites_btnDelete"
+      value="Delete All"
+    />
   </div>
   <div>
     <h1 class="characters_title">
@@ -45,6 +48,13 @@
     <ul class="js_charactersUl characters_ul favoritesul"></ul>
   </div>
 </section>
+
+    </main>
+    <footer>
+  <h3 class="footer">
+    Sometimes the right path is not the easiest one. © Adalab 2023
+  </h3>
+</footer>
 
 
     <script src="./js/main.js"></script>

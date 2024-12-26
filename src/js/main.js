@@ -23,7 +23,7 @@ const header = document.querySelector(".js_header");
 const image = document.createElement("img");
 
 image.className = "header_img";
-image.src = "/images/castillo-de-disneyland-q1m7w5s7yhgo7r1d.jpg";
+image.src = "./images/castillo-de-disneyland-q1m7w5s7yhgo7r1d.jpg";
 image.alt = "castillo disney de noche";
 image.id = "image01";
 image.dataset.invent = "imagen001";
@@ -187,14 +187,3 @@ if (localStorage.getItem("charactersFavs") !== null) {
   favorites = JSON.parse(localStorage.getItem("charactersFavs"));
   renderFavorites();
 }
-
-document.getElementById("agregarGifBtn").addEventListener("click", function () {
-  // Crear un nuevo elemento de imagen
-  var gif = document.createElement("img");
-
-  // Establecer la fuente del GIF (puedes poner cualquier URL de un GIF)
-  gif.src = "https://media.giphy.com/media/3o7aD2saalLXpKm6Jy/giphy.gif"; // Cambia esta URL a tu GIF deseado
-
-  // Agregar el GIF al contenedor
-  document.getElementById("gifContainer").appendChild(gif);
-});
