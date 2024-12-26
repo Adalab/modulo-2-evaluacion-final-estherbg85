@@ -23,7 +23,7 @@ const header = document.querySelector(".js_header");
 const image = document.createElement("img");
 
 image.className = "header_img";
-image.src = "./images/castillo-de-disneyland-q1m7w5s7yhgo7r1d.jpg";
+image.src = "/images/castillo-de-disneyland-q1m7w5s7yhgo7r1d.jpg";
 image.alt = "castillo disney de noche";
 image.id = "image01";
 image.dataset.invent = "imagen001";
