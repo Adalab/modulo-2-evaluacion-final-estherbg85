@@ -22,12 +22,9 @@ const header = document.querySelector(".js_header");
 
 const image = document.createElement("img");
 
-const disneyCastle = new URL(
-  "https://wallpapers.com/images/high/pink-purple-disneyland-castle-stars-ml4sl6nyo7u6e9ve.webp"
-);
-
 image.className = "header_img";
-image.src = disneyCastle;
+image.src =
+  "https://wallpapers.com/images/high/pink-purple-disneyland-castle-stars-ml4sl6nyo7u6e9ve.webp";
 image.alt = "castillo disney de noche";
 image.id = "image01";
 image.dataset.invent = "imagen001";
